@@ -6,7 +6,7 @@
 /*   By: gdurmaz <gdurmaz@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:18:25 by gdurmaz           #+#    #+#             */
-/*   Updated: 2023/08/24 14:48:00 by gdurmaz          ###   ########.fr       */
+/*   Updated: 2023/08/26 14:37:09 by gdurmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sort_three(t_stack **stack_a)
 }
 
 // pushes and partially sorts all elements leaving only three in the stack
-void	sorted_push_except_three(t_stack **s_a, t_stack **s_b)
+void	push_b_except_three(t_stack **s_a, t_stack **s_b)
 {
 	int	length;
 	int	pushed;
@@ -66,7 +66,7 @@ void	sorted_push_except_three(t_stack **s_a, t_stack **s_b)
 // add doubles rr rrr ss by comparing stack a b and their next
 void	sort_big(t_stack **stack_a, t_stack **stack_b)
 {
-	sorted_push_except_three(stack_a, stack_b);
+	push_b_except_three(stack_a, stack_b);
 	sort_three(stack_a);
 	while (*stack_b)
 	{
@@ -82,13 +82,13 @@ void	sort_big(t_stack **stack_a, t_stack **stack_b)
 void	shift_stack(t_stack **stack_a)
 {
 	int	lowest;
-	int	size;
+	int	length;
 
-	size = get_stack_length(*stack_a);
+	length = get_stack_length(*stack_a);
 	lowest = find_lowest_pos(stack_a) -1;
-	if (lowest > size / 2)
+	if (lowest > length / 2)
 	{
-		while (lowest < size)
+		while (lowest < length)
 		{
 			reverse_rotate_a(stack_a);
 			lowest++;
