@@ -13,7 +13,7 @@ SRC =	main.c \
 		utils.c \
 		stack_utils.c \
 		sort.c \
-		big_sort.c \
+		sort_big.c \
 		sort_utils.c \
 		do_best_move.c \
 		do_best_move_utils.c \
