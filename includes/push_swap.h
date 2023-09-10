@@ -6,7 +6,7 @@
 /*   By: gdurmaz <gdurmaz@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:24:10 by gdurmaz           #+#    #+#             */
-/*   Updated: 2023/08/24 15:42:59 by gdurmaz          ###   ########.fr       */
+/*   Updated: 2023/09/09 16:45:48 by gdurmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@ int			get_stack_length(t_stack *stack);
 t_stack		*new_tail(t_stack *new_tail);
 
 //error handling functions
+int			check_if_one_string(char *av);
 int			check_all_parameters_are_integers(char *av);
 int			check_no_parameter_duplicated(char **av);
 int			check_input_is_valid(char **av);
 int			check_stack_is_sorted(t_stack *stack);
-void		print_error(void);
 
 //sort functions
 void		sort_three(t_stack **stack_a);
-void		sorted_push_except_three(t_stack **stack_a, t_stack **stack_b);
+void		push_b_except_three(t_stack **stack_a, t_stack **stack_b);
 void		sort_big(t_stack **stack_a, t_stack **stack_b);
 void		shift_stack(t_stack **stack_a);
 void		push_swap(t_stack **stack_a, t_stack **stack_b);
@@ -102,5 +102,6 @@ void		push_b(t_stack **stack_a, t_stack **stack_b);
 int			abs_num(int num);
 int			str_cmp_sign(const char *s1, const char *s2);
 void		free_stack(t_stack **stack);
+void		print_error(void);
 
 #endif
