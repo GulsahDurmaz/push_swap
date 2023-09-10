@@ -6,11 +6,25 @@
 /*   By: gdurmaz <gdurmaz@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:16:48 by gdurmaz           #+#    #+#             */
-/*   Updated: 2023/08/24 14:27:30 by gdurmaz          ###   ########.fr       */
+/*   Updated: 2023/09/09 16:44:50 by gdurmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int	check_if_one_string(char *av)
+{
+	int	i;
+	int	counter;
+
+	i = 0;
+	counter = 0;
+	while (av && av[i++] == ' ')
+		counter++;
+	if (counter != 0)
+		return (1);
+	return (0);
+}
 
 /*Returns 1 if all the parameters of argv are digits*/
 int	check_all_parameters_are_integers(char *av)
@@ -20,7 +34,7 @@ int	check_all_parameters_are_integers(char *av)
 	i = 0;
 	if (ft_issign(av[i]) && av[i + 1] != '\0')
 		i++;
-	while (av[i] && ft_isdigit(av[i]))
+	while (av[i] && ft_isdigit(av[i]) && ft_isspace(av[i]))
 		i++;
 	if (av[i] != '\0' && !ft_isdigit(av[i]))
 		return (0);
@@ -77,10 +91,4 @@ int	check_stack_is_sorted(t_stack *stack)
 		stack = stack-> next;
 	}
 	return (1);
-}
-
-void	print_error(void)
-{
-	ft_printf("%s", ERROR_MESSAGE);
-	exit(1);
 }

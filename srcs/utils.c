@@ -6,7 +6,7 @@
 /*   By: gdurmaz <gdurmaz@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 16:18:55 by gdurmaz           #+#    #+#             */
-/*   Updated: 2023/08/24 15:16:19 by gdurmaz          ###   ########.fr       */
+/*   Updated: 2023/09/09 16:46:07 by gdurmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,10 @@ void	free_stack(t_stack **stack)
 		free(*stack);
 		*stack = tmp;
 	}
+}
+
+void	print_error(void)
+{
+	ft_printf("%s", ERROR_MESSAGE);
+	exit(1);
 }

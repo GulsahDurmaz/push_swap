@@ -6,7 +6,7 @@
 /*   By: gdurmaz <gdurmaz@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 13:15:29 by gdurmaz           #+#    #+#             */
-/*   Updated: 2023/08/26 14:39:07 by gdurmaz          ###   ########.fr       */
+/*   Updated: 2023/09/09 16:43:17 by gdurmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,44 @@ t_stack	*init_stack(int ac, char **av)
 	return (stack_a);
 }
 
+static int	ft_count_words(const char *str, char c)
+{
+	int	i;
+	int	trigger;
+
+	i = 0;
+	trigger = 0;
+	while (*str)
+	{
+		if (*str != c && trigger == 0)
+		{
+			trigger = 1;
+			i++;
+		}
+		else if (*str == c)
+			trigger = 0;
+		str++;
+	}
+	return (i);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	char	**tab;
 
 	if (ac == 1)
 		return (0);
+	if (ac == 2 && !check_if_one_string(av[1]))
+	{
+		if (ft_count_words(av[1], ' ') > 0)
+		{
+			tab = ft_split(av[1], ' ');
+			av = tab;
+		}
+		return (0);
+	}
 	if (!check_input_is_valid(av))
 		print_error ();
 	stack_a = init_stack(ac, av);
